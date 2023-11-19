@@ -95,3 +95,7 @@ export const useTheme = () => {
   const isDarkTheme = useThemeStore(state => state.isDarkTheme);
   return isDarkTheme ? DarkTheme : DefaultTheme;
 };
+
+const isDarkTheme = useThemeStore(state => state.isDarkTheme);
+const colors = isDarkTheme ? DarkTheme : DefaultTheme;
+export default colors;
