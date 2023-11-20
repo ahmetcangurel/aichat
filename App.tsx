@@ -1,18 +1,35 @@
-import React from 'react';
-import {StatusBar} from 'react-native';
+import 'react-native-gesture-handler';
+import React, {useEffect} from 'react';
+import {StatusBar, useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {useThemeStore} from './src/store/useThemeStore';
 import AuthStack from './src/navigation/AuthStack';
+import {ThemeProvider} from './src/theme/ThemeProvider';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 
 const App = () => {
-  const isDarkTheme = useThemeStore(s => s.isDarkTheme);
-  const toggleTheme = useThemeStore(s => s.toggleTheme);
+  const theme = useColorScheme();
+  console.log('Theme: ', theme);
+
+  useEffect(() => {
+    AsyncStorage.getItem('dark').then(value => {
+      if (value == 'true') {
+        console.log('Dark mode enabled');
+      } else {
+        console.log('Dark mode disabled');
+      }
+    });
+  }, []);
 
   return (
-    <NavigationContainer>
-      <StatusBar barStyle={isDarkTheme ? 'dark-content' : 'light-content'} />
-      <AuthStack />
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <StatusBar
+          barStyle={theme == 'light' ? 'dark-content' : 'light-content'}
+        />
+        <AuthStack />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 
