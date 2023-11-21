@@ -1,3 +1,70 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+import {useTheme} from '../../../theme/ThemeProvider';
 
-export const styles = StyleSheet.create({});
+const styles = () => {
+  const {colors} = useTheme();
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: colors.background.default,
+      paddingHorizontal: 12,
+    },
+    headerContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginVertical: 32,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: '500',
+      color: colors.text.primary,
+      textAlign: 'center',
+      marginTop: 24,
+    },
+    subtitle: {
+      fontSize: 14,
+      fontWeight: '400',
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginVertical: 16,
+    },
+    footerContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginVertical: 24,
+    },
+    footerText: {
+      fontSize: 14,
+      fontWeight: '400',
+      color: colors.text.primary,
+      textAlign: 'center',
+    },
+    footerLink: {
+      fontSize: 14,
+      fontWeight: '500',
+      color: colors.primary.main,
+      textAlign: 'center',
+    },
+    orContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginVertical: 12,
+    },
+    orLine: {
+      flex: 1,
+      height: 1,
+      backgroundColor: colors.background.paper,
+    },
+    orText: {
+      fontSize: 14,
+      fontWeight: '400',
+      color: colors.text.secondary,
+      textAlign: 'center',
+      marginHorizontal: 12,
+    },
+  });
+};
+
+export default styles;
