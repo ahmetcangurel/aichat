@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 //styles
 import styles from './WelcomeScreen.Style';
@@ -10,7 +11,7 @@ import {useTheme} from '../../../theme/ThemeProvider';
 import Button from '../../../components/Buttons/Button/Button';
 
 type WelcomeScreenProps = {
-  navigation: any;
+  navigation: StackNavigationProp<any>;
 };
 
 const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {

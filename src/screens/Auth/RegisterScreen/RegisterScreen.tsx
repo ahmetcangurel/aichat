@@ -1,16 +1,12 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
+import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
+//styles
 import styles from './RegisterScreen.Style';
 import {useTheme} from '../../../theme/ThemeProvider';
 
+//components
 import SvgLogo from '../../../components/icons/Logo';
 import Button from '../../../components/Buttons/Button/Button';
 import Input from '../../../components/Inputs/Input/Input';
@@ -18,7 +14,11 @@ import ButtonWithIcon from '../../../components/Buttons/ButtonWithIcon/ButtonWit
 import SvgMicrosoft from '../../../components/icons/Microsoft';
 import SvgGoogle from '../../../components/icons/Google';
 
-const RegisterScreen = ({navigation}) => {
+type RegisterScreenProps = {
+  navigation: StackNavigationProp<any>;
+};
+
+const RegisterScreen = ({navigation}: RegisterScreenProps) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const {colors} = useTheme();
