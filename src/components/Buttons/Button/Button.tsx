@@ -8,7 +8,7 @@ type ButtonProps = {
   type?: 'primary' | 'outlined' | 'disabled';
 };
 
-const Button = ({type = 'primary', onPress, title, disabled}: ButtonProps) => {
+const Button = ({type = 'primary', onPress, title}: ButtonProps) => {
   const Style = styles()[type];
 
   return (

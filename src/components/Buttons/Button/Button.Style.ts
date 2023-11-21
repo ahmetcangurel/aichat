@@ -1,8 +1,7 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {useTheme} from '../../theme/ThemeProvider';
+import {StyleSheet} from 'react-native';
+import {useTheme} from '../../../theme/ThemeProvider';
 
 const styles = () => {
-  const {width} = Dimensions.get('window');
   const {colors} = useTheme();
 
   const base = StyleSheet.create({
@@ -28,7 +27,7 @@ const styles = () => {
       },
       title: {
         ...base.title,
-        color: colors.text.primary,
+        color: colors.common.white,
       },
     },
     outlined: {
