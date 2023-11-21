@@ -7,18 +7,20 @@ import styles from './WelcomeScreen.Style';
 //components
 import SvgLogo from '../../../components/icons/Logo';
 import {useTheme} from '../../../theme/ThemeProvider';
-import Button from '../../../components/Button/Button';
+import Button from '../../../components/Buttons/Button/Button';
 
-type WelcomeScreenProps = {};
+type WelcomeScreenProps = {
+  navigation: any;
+};
 
-const WelcomeScreen = ({}: WelcomeScreenProps) => {
-  const {colors} = useTheme();
+const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
+  const {colors, dark, setScheme} = useTheme();
   const Style = styles();
 
   return (
     <ScrollView style={Style.container}>
       <View style={Style.headerContainer}>
-        <SvgLogo width={96} height={96} color={colors.background.default} />
+        <SvgLogo width={64} height={64} color={colors.background.default} />
       </View>
       <SafeAreaView style={Style.contentContainer}>
         {/* Welcome Text */}
@@ -31,13 +33,20 @@ const WelcomeScreen = ({}: WelcomeScreenProps) => {
         <Button
           type={'primary'}
           title="LOG IN"
-          onPress={() => console.log('LOG IN')}
+          onPress={() => navigation.navigate('Login')}
         />
         <Button
           type={'outlined'}
           title="SIGN UP"
-          onPress={() => console.log('SIGN UP')}
+          onPress={() => navigation.navigate('Register')}
         />
+        {/* <Button
+          type={'outlined'}
+          title="Change Theme"
+          onPress={() => {
+            setScheme(dark ? 'light' : 'dark');
+          }}
+        /> */}
       </SafeAreaView>
     </ScrollView>
   );
