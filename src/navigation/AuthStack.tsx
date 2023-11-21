@@ -6,9 +6,9 @@ import LoginScreen from '../screens/Auth/LoginScreen/LoginScreen';
 import RegisterScreen from '../screens/Auth/RegisterScreen/RegisterScreen';
 
 type AuthStackParamList = {
-  WelcomeScreen: undefined;
-  LoginScreen: undefined;
-  RegisterScreen: undefined;
+  Welcome: undefined;
+  Login: undefined;
+  Register: undefined;
 };
 
 const Stack = createStackNavigator<AuthStackParamList>();
@@ -16,13 +16,13 @@ const Stack = createStackNavigator<AuthStackParamList>();
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="WelcomeScreen"
+      initialRouteName="Welcome"
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 };
