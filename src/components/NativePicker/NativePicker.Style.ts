@@ -12,6 +12,17 @@ const styles = () => {
       height: 52,
       alignItems: 'center',
     },
+    inputStyles: {
+      fontSize: 14,
+      color: colors.text.primary,
+    },
+    dropdownTextStyles: {
+      fontSize: 14,
+      color: colors.text.primary,
+    },
+    searchPlaceholderTextColor: {
+      color: colors.text.primary,
+    },
   });
 };
 
