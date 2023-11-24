@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  KeyboardAvoidingView,
+} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 //styles
@@ -29,43 +35,45 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
 
   return (
-    <View style={Style.container}>
-      <SafeAreaView>
-        {/* Header Content */}
-        <View style={Style.headerContainer}>
-          <SvgLogo width={64} height={64} color={colors.text.primary} />
-          <Text style={Style.title}>Tell us about you</Text>
-        </View>
+    <KeyboardAvoidingView>
+      <ScrollView style={Style.container}>
+        <SafeAreaView>
+          {/* Header Content */}
+          <View style={Style.headerContainer}>
+            <SvgLogo width={64} height={64} color={colors.text.primary} />
+            <Text style={Style.title}>Tell us about you</Text>
+          </View>
 
-        {/* Input - Button */}
-        <Input
-          placeholder="First Name"
-          setValue={e => setFullName({...fullName, firstName: e})}
-        />
-        <Input
-          placeholder="Last Name"
-          setValue={e => setFullName({...fullName, lastName: e})}
-        />
-        <Button
-          title="Continue"
-          onPress={() => navigation.navigate('VerifyPhone')}
-          type="primary"
-        />
+          {/* Input - Button */}
+          <Input
+            placeholder="First Name"
+            setValue={e => setFullName({...fullName, firstName: e})}
+          />
+          <Input
+            placeholder="Last Name"
+            setValue={e => setFullName({...fullName, lastName: e})}
+          />
+          <Button
+            title="Continue"
+            onPress={() => navigation.navigate('VerifyPhone')}
+            type="primary"
+          />
 
-        {/* Footer Content */}
-        <View style={Style.footerContainer}>
-          <Text style={Style.footerText}>
-            By clicking "Continue" you agree to our{' '}
-            <Text
-              onPress={() => console.log('Terms Pressed!')}
-              style={Style.footerLink}>
-              Terms
-            </Text>{' '}
-            and confirm you're 18 years or older.
-          </Text>
-        </View>
-      </SafeAreaView>
-    </View>
+          {/* Footer Content */}
+          <View style={Style.footerContainer}>
+            <Text style={Style.footerText}>
+              By clicking "Continue" you agree to our{' '}
+              <Text
+                onPress={() => console.log('Terms Pressed!')}
+                style={Style.footerLink}>
+                Terms
+              </Text>{' '}
+              and confirm you're 18 years or older.
+            </Text>
+          </View>
+        </SafeAreaView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 import {useTheme} from '../../../theme/ThemeProvider';
 
 const styles = () => {
@@ -11,7 +11,7 @@ const styles = () => {
     },
     headerContainer: {
       backgroundColor: colors.primary.main,
-      height: width * 0.8,
+      height: width * (Platform.OS === 'ios' ? 0.8 : 0.5),
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: 48,

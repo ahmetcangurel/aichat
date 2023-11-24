@@ -18,6 +18,8 @@ type WelcomeScreenProps = {
 const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
   const {colors, dark, setScheme} = useTheme();
   const Style = styles();
+
+  //for loading animation
   const {data, error} = useGet('https://jsonplaceholder.typicode.com/todos/1');
 
   return (

@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  KeyboardAvoidingView,
+} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 //styles
@@ -29,29 +35,31 @@ const EnterVerifyCodeScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
 
   return (
-    <View style={Style.container}>
-      <SafeAreaView>
-        {/* Header Content */}
-        <View style={Style.headerContainer}>
-          <SvgLogo width={64} height={64} color={colors.text.primary} />
-          <Text style={Style.title}>Enter Code</Text>
-          <Text style={Style.subtitle}>
-            Please enter the code we just sent you.
-          </Text>
-        </View>
+    <KeyboardAvoidingView>
+      <ScrollView style={Style.container}>
+        <SafeAreaView>
+          {/* Header Content */}
+          <View style={Style.headerContainer}>
+            <SvgLogo width={64} height={64} color={colors.text.primary} />
+            <Text style={Style.title}>Enter Code</Text>
+            <Text style={Style.subtitle}>
+              Please enter the code we just sent you.
+            </Text>
+          </View>
 
-        {/* Input - Button */}
-        <Input
-          placeholder="0000"
-          setValue={e => setFullName({...fullName, firstName: e})}
-        />
-        <Button
-          title="Continue"
-          onPress={() => console.log('Continue')}
-          type="outlined"
-        />
-      </SafeAreaView>
-    </View>
+          {/* Input - Button */}
+          <Input
+            placeholder="0000"
+            setValue={e => setFullName({...fullName, firstName: e})}
+          />
+          <Button
+            title="Continue"
+            onPress={() => console.log('Continue')}
+            type="outlined"
+          />
+        </SafeAreaView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

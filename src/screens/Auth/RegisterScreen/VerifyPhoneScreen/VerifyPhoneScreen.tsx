@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  KeyboardAvoidingView,
+} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 //styles
@@ -23,33 +29,35 @@ const VerifyPhoneScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
 
   return (
-    <View style={Style.container}>
-      <SafeAreaView>
-        {/* Header Content */}
-        <View style={Style.headerContainer}>
-          <SvgLogo width={64} height={64} color={colors.text.primary} />
-          <Text style={Style.title}>Verify your phone number</Text>
-        </View>
+    <KeyboardAvoidingView>
+      <ScrollView style={Style.container}>
+        <SafeAreaView>
+          {/* Header Content */}
+          <View style={Style.headerContainer}>
+            <SvgLogo width={64} height={64} color={colors.text.primary} />
+            <Text style={Style.title}>Verify your phone number</Text>
+          </View>
 
-        {/* Input - Button */}
-        <NativePicker
-          setValue={setRegionCode}
-          placeholder="Select Region"
-          searchPlaceholder="Search Region"
-          notFoundText="Region Not Found"
-        />
-        <PhoneNumberInput
-          setValue={setPhoneNumber}
-          placeholder="(345) 123 4567"
-          regionCode={regionCode}
-        />
-        <Button
-          title="Send Code"
-          onPress={() => navigation.navigate('EnterVerifyCode')}
-          type="primary"
-        />
-      </SafeAreaView>
-    </View>
+          {/* Input - Button */}
+          <NativePicker
+            setValue={setRegionCode}
+            placeholder="Select Region"
+            searchPlaceholder="Search Region"
+            notFoundText="Region Not Found"
+          />
+          <PhoneNumberInput
+            setValue={setPhoneNumber}
+            placeholder="(345) 123 4567"
+            regionCode={regionCode}
+          />
+          <Button
+            title="Send Code"
+            onPress={() => navigation.navigate('EnterVerifyCode')}
+            type="primary"
+          />
+        </SafeAreaView>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
