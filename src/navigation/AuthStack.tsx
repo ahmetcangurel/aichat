@@ -22,7 +22,7 @@ const Stack = createStackNavigator<AuthStackParamList>();
 const AuthStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="VerifyPhone"
+      initialRouteName="Welcome"
       screenOptions={{
         headerShown: false,
       }}>
