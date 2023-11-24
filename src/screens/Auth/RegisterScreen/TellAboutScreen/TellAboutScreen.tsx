@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 
 //styles
@@ -10,9 +10,6 @@ import {useTheme} from '../../../../theme/ThemeProvider';
 import SvgLogo from '../../../../components/icons/Logo';
 import Button from '../../../../components/Buttons/Button/Button';
 import Input from '../../../../components/Inputs/Input/Input';
-import ButtonWithIcon from '../../../../components/Buttons/ButtonWithIcon/ButtonWithIcon';
-import SvgMicrosoft from '../../../../components/icons/Microsoft';
-import SvgGoogle from '../../../../components/icons/Google';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
