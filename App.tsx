@@ -10,7 +10,7 @@ import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 
 const App = () => {
   const theme = useColorScheme();
-  console.log('Theme: ', theme);
+  
 
   useEffect(() => {
     AsyncStorage.getItem('dark').then(value => {
