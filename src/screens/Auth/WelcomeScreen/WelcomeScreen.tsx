@@ -9,6 +9,7 @@ import styles from './WelcomeScreen.Style';
 import SvgLogo from '../../../components/icons/Logo';
 import {useTheme} from '../../../theme/ThemeProvider';
 import Button from '../../../components/Buttons/Button/Button';
+import useGet from '../../../hooks/useGet';
 
 type WelcomeScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -17,6 +18,7 @@ type WelcomeScreenProps = {
 const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
   const {colors, dark, setScheme} = useTheme();
   const Style = styles();
+  const {data, error} = useGet('https://jsonplaceholder.typicode.com/todos/1');
 
   return (
     <ScrollView style={Style.container}>
@@ -41,13 +43,15 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
           title="SIGN UP"
           onPress={() => navigation.navigate('Register')}
         />
-        {/* <Button
+
+        {/* _DEV_ Change Theme Button */}
+        <Button
           type={'outlined'}
           title="Change Theme"
           onPress={() => {
             setScheme(dark ? 'light' : 'dark');
           }}
-        /> */}
+        />
       </SafeAreaView>
     </ScrollView>
   );

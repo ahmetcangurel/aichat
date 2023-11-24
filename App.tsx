@@ -6,11 +6,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import AuthStack from './src/navigation/AuthStack';
 import {ThemeProvider} from './src/theme/ThemeProvider';
-import SplashScreen from './src/screens/SplashScreen/SplashScreen';
+import LoadingModal from './src/components/Modals/LoadingModal/LoadingModal';
+import useLoadingStore from './src/store/useLoadingStore';
 
 const App = () => {
   const theme = useColorScheme();
-  
+  const loading = useLoadingStore(state => state.loading);
 
   useEffect(() => {
     AsyncStorage.getItem('dark').then(value => {
@@ -24,6 +25,7 @@ const App = () => {
 
   return (
     <ThemeProvider>
+      <LoadingModal visible={loading} />
       <NavigationContainer>
         <StatusBar
           barStyle={theme == 'light' ? 'dark-content' : 'light-content'}
