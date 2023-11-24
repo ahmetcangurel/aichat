@@ -47,8 +47,8 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
         <Input placeholder="Password" setValue={setPassword} secureTextEntry />
         <Button
           title="Continue"
-          onPress={() => console.log('Continue button pressed')}
-          type={email.length > 0 ? 'primary' : 'disabled'}
+          onPress={() => navigation.navigate('TellAbout')}
+          type={'primary'} // {email.length > 0 ? 'primary' : 'disabled'}
         />
 
         {/* Footer Content */}
