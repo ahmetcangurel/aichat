@@ -1,0 +1,32 @@
+{
+  "auth": {
+    "welcomechatgpt": "ChatGPT'ye hoş geldiniz",
+    "welcomechatgptdesc": "Devam etmek için OpenAI hesabınızla oturum açın",
+    "createyouraccount": "Hesap oluştur",
+    "createyouraccountdesc": "Kayıt için telefon doğrulamasının gerekli olduğunu lütfen unutmayın. Numaranız yalnızca güvenlik amacıyla kimliğinizi doğrulamak için kullanılacaktır.",
+    "login": "Giriş Yap",
+    "logout": "Çıkış Yap",
+    "signup": "Kayıt Ol",
+    "continuewithgoogle": "Google ile devam et",
+    "continuewithmicrosoft": "Microsoft ile devam et",
+    "or": "YA DA",
+    "continue": "Devam",
+    "email": "Email adresi",
+    "password": "Şifre",
+    "alredyhaveanaccount": "Zaten bir hesabın var mı?",
+    "tellusaboutyou": "Bize kendinden bahset",
+    "firstname": "Ad",
+    "lastname": "Soyad",
+    "terms": "Kullanım Koşullarımızı",
+    "termsdesc1": "'Devam'ı tıklayarak ",
+    "termsdesc2": " kabul etmiş ve 18 yaşında veya daha büyük olduğunuzu onaylamış olursunuz.",
+    "verifyyourphone": "Telefon numaranı doğrula",
+    "sendcode": "Kod Gönder",
+    "entercode": "Kodu Gir",
+    "entercodedesc": "Lütfen size az önce gönderdiğimiz kodu girin.",
+    "resendcode": "Kodu Tekrar Gönder",
+    "selectregion": "Bölge Seç",
+    "searchregion": "Bölge Ara",
+    "regionnotfound": "Bölge bulunamadı"
+  }
+}

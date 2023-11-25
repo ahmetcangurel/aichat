@@ -16,6 +16,7 @@ import {useTheme} from '../../../../theme/ThemeProvider';
 import SvgLogo from '../../../../components/icons/Logo';
 import Button from '../../../../components/Buttons/Button/Button';
 import Input from '../../../../components/Inputs/Input/Input';
+import {useTranslation} from 'react-i18next';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -33,6 +34,7 @@ const EnterVerifyCodeScreen = ({navigation}: RegisterScreenProps) => {
   });
   const {colors} = useTheme();
   const Style = styles();
+  const {t} = useTranslation();
 
   return (
     <KeyboardAvoidingView>
@@ -41,10 +43,8 @@ const EnterVerifyCodeScreen = ({navigation}: RegisterScreenProps) => {
           {/* Header Content */}
           <View style={Style.headerContainer}>
             <SvgLogo width={64} height={64} color={colors.text.primary} />
-            <Text style={Style.title}>Enter Code</Text>
-            <Text style={Style.subtitle}>
-              Please enter the code we just sent you.
-            </Text>
+            <Text style={Style.title}>{t('auth.entercode')}</Text>
+            <Text style={Style.subtitle}>{t('auth.entercodedesc')}</Text>
           </View>
 
           {/* Input - Button */}
@@ -53,7 +53,7 @@ const EnterVerifyCodeScreen = ({navigation}: RegisterScreenProps) => {
             setValue={e => setFullName({...fullName, firstName: e})}
           />
           <Button
-            title="Continue"
+            title={t('auth.continue')}
             onPress={() => console.log('Continue')}
             type="outlined"
           />

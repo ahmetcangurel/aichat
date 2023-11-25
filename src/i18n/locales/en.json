@@ -1,0 +1,32 @@
+{
+  "auth": {
+    "welcomechatgpt": "Welcome to ChatGPT",
+    "welcomechatgptdesc": "Log in with your OpenAI account to continue",
+    "createyouraccount": "Create your account",
+    "createyouraccountdesc": "Please note that phone verification is required for signup. Your number will only be used to verify your identity for security purposes.",
+    "login": "LOG IN",
+    "logout": "Logout",
+    "signup": "SIGN UP",
+    "continuewithgoogle": "Continue with Google",
+    "continuewithmicrosoft": "Continue with Microsoft",
+    "or": "OR",
+    "continue": "Continue",
+    "email": "Email address",
+    "password": "Password",
+    "alredyhaveanaccount": "Already have an account?",
+    "tellusaboutyou": "Tell us about you",
+    "firstname": "First Name",
+    "lastname": "Last name",
+    "terms": "Terms",
+    "termsdesc1": "By clicking 'Continue' you agree to our ",
+    "termsdesc2": " and confirm you're 18 years or older.",
+    "verifyyourphone": "Verify your phone number",
+    "sendcode": "Send code",
+    "entercode": "Enter code",
+    "entercodedesc": "Please enter the code we just sent you.",
+    "resendcode": "Resend code",
+    "selectregion": "Select region",
+    "searchregion": "Search region",
+    "regionnotfound": "Region not found"
+  }
+}

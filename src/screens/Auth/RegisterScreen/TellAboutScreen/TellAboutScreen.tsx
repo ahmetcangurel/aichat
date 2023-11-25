@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useTranslation} from 'react-i18next';
 
 //styles
 import styles from './TellAboutScreen.Style';
@@ -33,6 +34,7 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
   });
   const {colors} = useTheme();
   const Style = styles();
+  const {t} = useTranslation();
 
   return (
     <KeyboardAvoidingView>
@@ -41,20 +43,20 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
           {/* Header Content */}
           <View style={Style.headerContainer}>
             <SvgLogo width={64} height={64} color={colors.text.primary} />
-            <Text style={Style.title}>Tell us about you</Text>
+            <Text style={Style.title}>{t('auth.tellusaboutyou')}</Text>
           </View>
 
           {/* Input - Button */}
           <Input
-            placeholder="First Name"
+            placeholder={t('auth.firstname')}
             setValue={e => setFullName({...fullName, firstName: e})}
           />
           <Input
-            placeholder="Last Name"
+            placeholder={t('auth.lastname')}
             setValue={e => setFullName({...fullName, lastName: e})}
           />
           <Button
-            title="Continue"
+            title={t('auth.continue')}
             onPress={() => navigation.navigate('VerifyPhone')}
             type="primary"
           />
@@ -62,13 +64,13 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
           {/* Footer Content */}
           <View style={Style.footerContainer}>
             <Text style={Style.footerText}>
-              By clicking "Continue" you agree to our{' '}
+              {t('auth.termsdesc1')}
               <Text
                 onPress={() => console.log('Terms Pressed!')}
                 style={Style.footerLink}>
-                Terms
-              </Text>{' '}
-              and confirm you're 18 years or older.
+                {t('auth.terms')}
+              </Text>
+              {t('auth.termsdesc2')}
             </Text>
           </View>
         </SafeAreaView>

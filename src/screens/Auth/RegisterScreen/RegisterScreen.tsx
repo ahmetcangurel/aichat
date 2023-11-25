@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useTranslation} from 'react-i18next';
 
 //styles
 import styles from './RegisterScreen.Style';
@@ -30,6 +31,7 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
   const [password, setPassword] = useState<string>('');
   const {colors} = useTheme();
   const Style = styles();
+  const {t} = useTranslation();
 
   return (
     <KeyboardAvoidingView>
@@ -38,54 +40,54 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
           {/* Header Content */}
           <View style={Style.headerContainer}>
             <SvgLogo width={64} height={64} color={colors.text.primary} />
-            <Text style={Style.title}>Create your account</Text>
+            <Text style={Style.title}>{t('auth.createyouraccount')}</Text>
             <Text style={Style.subtitle}>
-              Please note that phone verification is required for signup. Your
-              number will only be used to verify your identity for security
-              purposes.
+              {t('auth.createyouraccountdesc')}
             </Text>
           </View>
 
           {/* Input - Button */}
           <Input
             type="email-address"
-            placeholder="E-Mail Address"
+            placeholder={t('auth.email')}
             setValue={setEmail}
           />
           <Input
-            placeholder="Password"
+            placeholder={t('auth.password')}
             setValue={setPassword}
             secureTextEntry
           />
           <Button
-            title="Continue"
+            title={t('auth.continue')}
             onPress={() => navigation.navigate('TellAbout')}
             type={'primary'} // {email.length > 0 ? 'primary' : 'disabled'}
           />
 
           {/* Footer Content */}
           <View style={Style.footerContainer}>
-            <Text style={Style.footerText}>Already have an account? </Text>
+            <Text style={Style.footerText}>
+              {t('auth.alredyhaveanaccount')}
+            </Text>
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-              <Text style={Style.footerLink}> Login</Text>
+              <Text style={Style.footerLink}> {t('auth.login')}</Text>
             </TouchableOpacity>
           </View>
 
           {/* OR */}
           <View style={Style.orContainer}>
             <View style={Style.orLine} />
-            <Text style={Style.orText}>OR</Text>
+            <Text style={Style.orText}>{t('auth.or')}</Text>
             <View style={Style.orLine} />
           </View>
 
           {/* Social Media Buttons */}
           <ButtonWithIcon
-            title="Continue with Google"
+            title={t('auth.continuewithgoogle')}
             onPress={() => console.log('Continue with Google button pressed')}
             icon={<SvgGoogle width={20} height={20} />}
           />
           <ButtonWithIcon
-            title="Continue with Microsoft"
+            title={t('auth.continuewithmicrosoft')}
             onPress={() =>
               console.log('Continue with Microsoft button pressed')
             }

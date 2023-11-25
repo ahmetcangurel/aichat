@@ -10,6 +10,7 @@ import SvgLogo from '../../../components/icons/Logo';
 import {useTheme} from '../../../theme/ThemeProvider';
 import Button from '../../../components/Buttons/Button/Button';
 import useGet from '../../../hooks/useGet';
+import {useTranslation} from 'react-i18next';
 
 type WelcomeScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -18,6 +19,7 @@ type WelcomeScreenProps = {
 const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
   const {colors, dark, setScheme} = useTheme();
   const Style = styles();
+  const {t} = useTranslation();
 
   //for loading animation
   const {data, error} = useGet('https://jsonplaceholder.typicode.com/todos/1');
@@ -29,20 +31,18 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
       </View>
       <SafeAreaView style={Style.contentContainer}>
         {/* Welcome Text */}
-        <Text style={Style.title}>Welcome to ChatGPT</Text>
-        <Text style={Style.subtitle}>
-          Log in with your OpenAI account to continue
-        </Text>
+        <Text style={Style.title}>{t('auth.welcomechatgpt')}</Text>
+        <Text style={Style.subtitle}>{t('auth.welcomechatgptdesc')}</Text>
 
         {/* Buttons */}
         <Button
           type={'primary'}
-          title="LOG IN"
+          title={t('auth.login')}
           onPress={() => navigation.navigate('Login')}
         />
         <Button
           type={'outlined'}
-          title="SIGN UP"
+          title={t('auth.signup')}
           onPress={() => navigation.navigate('Register')}
         />
 

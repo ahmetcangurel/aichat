@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useTranslation} from 'react-i18next';
 
 //styles
 import styles from './VerifyPhoneScreen.Style';
@@ -27,6 +28,7 @@ const VerifyPhoneScreen = ({navigation}: RegisterScreenProps) => {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const {colors} = useTheme();
   const Style = styles();
+  const {t} = useTranslation();
 
   return (
     <KeyboardAvoidingView>
@@ -35,15 +37,15 @@ const VerifyPhoneScreen = ({navigation}: RegisterScreenProps) => {
           {/* Header Content */}
           <View style={Style.headerContainer}>
             <SvgLogo width={64} height={64} color={colors.text.primary} />
-            <Text style={Style.title}>Verify your phone number</Text>
+            <Text style={Style.title}>{t('auth.verifyyourphone')}</Text>
           </View>
 
           {/* Input - Button */}
           <NativePicker
             setValue={setRegionCode}
-            placeholder="Select Region"
-            searchPlaceholder="Search Region"
-            notFoundText="Region Not Found"
+            placeholder={t('auth.selectregion')}
+            searchPlaceholder={t('auth.searchregion')}
+            notFoundText={t('auth.regionnotfound')}
           />
           <PhoneNumberInput
             setValue={setPhoneNumber}
@@ -51,7 +53,7 @@ const VerifyPhoneScreen = ({navigation}: RegisterScreenProps) => {
             regionCode={regionCode}
           />
           <Button
-            title="Send Code"
+            title={t('auth.sendcode')}
             onPress={() => navigation.navigate('EnterVerifyCode')}
             type="primary"
           />

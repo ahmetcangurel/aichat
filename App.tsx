@@ -8,6 +8,7 @@ import AuthStack from './src/navigation/AuthStack';
 import {ThemeProvider} from './src/theme/ThemeProvider';
 import LoadingModal from './src/components/Modals/LoadingModal/LoadingModal';
 import useLoadingStore from './src/store/useLoadingStore';
+import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 
 const App = () => {
   const theme = useColorScheme();
@@ -32,6 +33,7 @@ const App = () => {
         />
         <AuthStack />
       </NavigationContainer>
+      {/* <SplashScreen /> */}
     </ThemeProvider>
   );
 };
