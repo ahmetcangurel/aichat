@@ -1,5 +1,6 @@
 //Select List: Search Placeholder rengi değiştirilemiyor. - node_modules dizininden güncellenmesi gerekiyor.
 //eklenen prop: searchPlaceholderTextColor, bu prop sadece placeholder rengini değiştiriyor.
+//node_modules/react-native-dropdown-select-list/components/SelectList.js => searchPlaceholder proponun altına searchPlaceholderTextColor propu eklenmeli.
 import React, {useState} from 'react';
 import {SelectList} from 'react-native-dropdown-select-list';
 
