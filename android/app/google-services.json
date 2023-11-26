@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "641836344885",
+    "project_id": "chatai-597bd",
+    "storage_bucket": "chatai-597bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641836344885:android:c5f6e2aead7ba8d5e5b37c",
+        "android_client_info": {
+          "package_name": "com.aichat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFMEHoCIuLfJ2D2C3ZQ4s2QDYVas-_ueY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
