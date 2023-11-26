@@ -17,6 +17,8 @@ import {useTheme} from '../../../../theme/ThemeProvider';
 import SvgLogo from '../../../../components/icons/Logo';
 import Button from '../../../../components/Buttons/Button/Button';
 import Input from '../../../../components/Inputs/Input/Input';
+import {updateDisplayName} from '../../../../services/Firebase/UpdateProfile';
+import useLoadingStore from '../../../../store/useLoadingStore';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -35,6 +37,18 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
   const {colors} = useTheme();
   const Style = styles();
   const {t} = useTranslation();
+  const setLoading = useLoadingStore(state => state.setLoading);
+
+  const handleUpdateName = async () => {
+    if (fullName.firstName.length > 1 || fullName.lastName.length > 1) {
+      setLoading(true);
+      await updateDisplayName(fullName.firstName, fullName.lastName);
+      setLoading(false);
+      navigation.navigate('VerifyPhone');
+    } else {
+      console.log('Please enter your name');
+    }
+  };
 
   return (
     <KeyboardAvoidingView>
@@ -57,7 +71,7 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
           />
           <Button
             title={t('auth.continue')}
-            onPress={() => navigation.navigate('VerifyPhone')}
+            onPress={() => handleUpdateName()}
             type="primary"
           />
 

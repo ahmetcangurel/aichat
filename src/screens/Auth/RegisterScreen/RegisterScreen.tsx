@@ -21,6 +21,8 @@ import Input from '../../../components/Inputs/Input/Input';
 import ButtonWithIcon from '../../../components/Buttons/ButtonWithIcon/ButtonWithIcon';
 import SvgMicrosoft from '../../../components/icons/Microsoft';
 import SvgGoogle from '../../../components/icons/Google';
+import {signUp} from '../../../services/Firebase/SignUp';
+import useLoadingStore from '../../../store/useLoadingStore';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -32,6 +34,17 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
   const {colors} = useTheme();
   const Style = styles();
   const {t} = useTranslation();
+  const setLoading = useLoadingStore(state => state.setLoading);
+
+  const handleSignUp = async () => {
+    setLoading(true);
+    await signUp(email, password).then(res => {
+      if (res?.user) {
+        navigation.navigate('TellAbout');
+      }
+    });
+    setLoading(false);
+  };
 
   return (
     <KeyboardAvoidingView>
@@ -59,7 +72,9 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
           />
           <Button
             title={t('auth.continue')}
-            onPress={() => navigation.navigate('TellAbout')}
+            onPress={() => {
+              handleSignUp();
+            }}
             type={'primary'} // {email.length > 0 ? 'primary' : 'disabled'}
           />
 
