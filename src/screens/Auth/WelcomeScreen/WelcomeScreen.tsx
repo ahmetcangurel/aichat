@@ -1,16 +1,18 @@
 import React from 'react';
 import {View, Text, SafeAreaView, ScrollView} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {useTranslation} from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //styles
+import {useTheme} from '../../../theme/ThemeProvider';
 import styles from './WelcomeScreen.Style';
 
 //components
 import SvgLogo from '../../../components/icons/Logo';
-import {useTheme} from '../../../theme/ThemeProvider';
 import Button from '../../../components/Buttons/Button/Button';
 import useGet from '../../../hooks/useGet';
-import {useTranslation} from 'react-i18next';
+import Toast from 'react-native-toast-message';
 
 type WelcomeScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -19,10 +21,21 @@ type WelcomeScreenProps = {
 const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
   const {colors, dark, setScheme} = useTheme();
   const Style = styles();
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
 
-  //for loading animation
+  // _DEV_ loading animation
   const {data, error} = useGet('https://jsonplaceholder.typicode.com/todos/1');
+
+  // _DEV_ Save async storage
+  const handleChangeLanguage = async () => {
+    await AsyncStorage.setItem('lang', i18n.language === 'en' ? 'tr' : 'en');
+    i18n.changeLanguage(i18n.language === 'en' ? 'tr' : 'en');
+    Toast.show({
+      type: 'success',
+      text1: 'Language Changed',
+      text2: i18n.language === 'en' ? 'English' : 'Türkçe',
+    });
+  };
 
   return (
     <ScrollView style={Style.container}>
@@ -46,13 +59,19 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
           onPress={() => navigation.navigate('Register')}
         />
 
-        {/* _DEV_ Change Theme Button */}
+        {/* _DEV_ Test Button */}
         <Button
           type={'outlined'}
           title="Change Theme"
           onPress={() => {
             setScheme(dark ? 'light' : 'dark');
           }}
+        />
+        {/* _DEV_ Test Button */}
+        <Button
+          type={'outlined'}
+          title="Change Language"
+          onPress={() => handleChangeLanguage()}
         />
       </SafeAreaView>
     </ScrollView>

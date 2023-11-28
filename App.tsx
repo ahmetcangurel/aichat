@@ -8,33 +8,49 @@ import AuthStack from './src/navigation/AuthStack';
 import {ThemeProvider} from './src/theme/ThemeProvider';
 import LoadingModal from './src/components/Modals/LoadingModal/LoadingModal';
 import useLoadingStore from './src/store/useLoadingStore';
-import SplashScreen from './src/screens/SplashScreen/SplashScreen';
+import {useTranslation} from 'react-i18next';
+import Toast from 'react-native-toast-message';
+import ToastConfig from './src/components/ToastMessages/ToastConfig';
 
 const App = () => {
   const theme = useColorScheme();
   const loading = useLoadingStore(state => state.loading);
+  const {i18n} = useTranslation();
 
   useEffect(() => {
     AsyncStorage.getItem('dark').then(value => {
       if (value == 'true') {
-        console.log('Dark mode enabled');
+        console.log('Theme Mode: Dark');
       } else {
-        console.log('Dark mode disabled');
+        console.log('Theme Mode: Light');
+      }
+    });
+
+    AsyncStorage.getItem('lang').then(res => {
+      console.log('Language: ', res);
+      if (res == null) {
+        AsyncStorage.setItem('lang', 'en');
+        i18n.changeLanguage('en');
+      } else {
+        i18n.changeLanguage(res);
       }
     });
   }, []);
 
   return (
-    <ThemeProvider>
-      <LoadingModal visible={loading} />
-      <NavigationContainer>
-        <StatusBar
-          barStyle={theme == 'light' ? 'dark-content' : 'light-content'}
-        />
-        <AuthStack />
-      </NavigationContainer>
-      {/* <SplashScreen /> */}
-    </ThemeProvider>
+    <>
+      <ThemeProvider>
+        <LoadingModal visible={loading} />
+        <NavigationContainer>
+          <StatusBar
+            barStyle={theme == 'light' ? 'dark-content' : 'light-content'}
+          />
+          <AuthStack />
+        </NavigationContainer>
+        {/* <SplashScreen /> */}
+      </ThemeProvider>
+      <Toast config={ToastConfig} />
+    </>
   );
 };
 
