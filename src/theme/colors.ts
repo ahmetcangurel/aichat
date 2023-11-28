@@ -1,4 +1,3 @@
-import {useThemeStore} from '../store/useThemeStore';
 interface Colors {
   light: string;
   main: string;
