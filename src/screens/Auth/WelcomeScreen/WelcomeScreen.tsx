@@ -11,7 +11,6 @@ import styles from './WelcomeScreen.Style';
 //components
 import SvgLogo from '../../../components/icons/Logo';
 import Button from '../../../components/Buttons/Button/Button';
-import useGet from '../../../hooks/useGet';
 import Toast from 'react-native-toast-message';
 
 type WelcomeScreenProps = {
@@ -22,9 +21,6 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
   const {colors, dark, setScheme} = useTheme();
   const Style = styles();
   const {t, i18n} = useTranslation();
-
-  // _DEV_ loading animation
-  const {data, error} = useGet('https://jsonplaceholder.typicode.com/todos/1');
 
   // _DEV_ Save async storage
   const handleChangeLanguage = async () => {
