@@ -6,7 +6,7 @@ type LoadingStore = {
 };
 
 const useLoadingStore = create<LoadingStore>(set => ({
-  loading: true,
+  loading: false,
   setLoading: loading => set({loading}),
 }));
 
