@@ -17,11 +17,12 @@ import {useTheme} from '../../../../theme/ThemeProvider';
 import SvgLogo from '../../../../components/icons/Logo';
 import Button from '../../../../components/Buttons/Button/Button';
 import Input from '../../../../components/Inputs/Input/Input';
-import {updateDisplayName} from '../../../../services/Firebase/UpdateProfile';
 import useLoadingStore from '../../../../store/useLoadingStore';
+import useNewUserStore from '../../../../store/useNewUserStore';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
+  route: any;
 };
 
 type FullNameProps = {
@@ -38,16 +39,20 @@ const TellAboutScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
   const {t} = useTranslation();
   const setLoading = useLoadingStore(state => state.setLoading);
+  const {newUser, setNewUser} = useNewUserStore(state => ({
+    setNewUser: state.setNewUser,
+    newUser: state.newUser,
+  }));
 
-  const handleUpdateName = async () => {
-    if (fullName.firstName.length > 1 || fullName.lastName.length > 1) {
-      setLoading(true);
-      await updateDisplayName(fullName.firstName, fullName.lastName);
-      setLoading(false);
-      navigation.navigate('VerifyPhone');
-    } else {
-      console.log('Please enter your name');
-    }
+  const handleUpdateName = () => {
+    setLoading(true);
+    setNewUser({
+      ...newUser,
+      firstName: fullName.firstName,
+      lastName: fullName.lastName,
+    });
+    setLoading(false);
+    navigation.navigate('VerifyPhone');
   };
 
   return (

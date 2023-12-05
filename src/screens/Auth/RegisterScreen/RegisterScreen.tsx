@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
+import firestore from '@react-native-firebase/firestore';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 //styles
 import styles from './RegisterScreen.Style';
@@ -21,8 +23,9 @@ import Input from '../../../components/Inputs/Input/Input';
 import ButtonWithIcon from '../../../components/Buttons/ButtonWithIcon/ButtonWithIcon';
 import SvgMicrosoft from '../../../components/icons/Microsoft';
 import SvgGoogle from '../../../components/icons/Google';
-import {signUp} from '../../../services/Firebase/SignUp';
 import useLoadingStore from '../../../store/useLoadingStore';
+import Toast from 'react-native-toast-message';
+import useNewUserStore from '../../../store/useNewUserStore';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -35,16 +38,48 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
   const {t} = useTranslation();
   const setLoading = useLoadingStore(state => state.setLoading);
+  const {newUser, setNewUser} = useNewUserStore(state => ({
+    setNewUser: state.setNewUser,
+    newUser: state.newUser,
+  }));
 
   const handleSignUp = async () => {
     setLoading(true);
-    await signUp(email, password).then(res => {
-      if (res?.user) {
-        navigation.navigate('TellAbout');
-      }
-    });
+
+    const haveAnUser = await firestore()
+      .collection('users')
+      .where('email', '==', email)
+      .get()
+      .then(querySnapshot => {
+        if (querySnapshot.size > 0) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+
+    if (haveAnUser) {
+      setLoading(false);
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'This email is already in use.',
+      });
+      navigation.goBack();
+      return;
+    }
+    if (!haveAnUser) {
+      setNewUser({
+        ...newUser,
+        email: email,
+        password: password,
+      });
+      navigation.navigate('TellAbout');
+    }
     setLoading(false);
   };
+
+  console.log(newUser);
 
   return (
     <KeyboardAvoidingView>
@@ -75,7 +110,7 @@ const RegisterScreen = ({navigation}: RegisterScreenProps) => {
             onPress={() => {
               handleSignUp();
             }}
-            type={'primary'} // {email.length > 0 ? 'primary' : 'disabled'}
+            type={email.length > 0 ? 'primary' : 'disabled'}
           />
 
           {/* Footer Content */}

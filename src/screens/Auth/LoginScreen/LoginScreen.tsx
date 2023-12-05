@@ -9,10 +9,14 @@ import {
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
+import auth from '@react-native-firebase/auth';
 
 //styles
 import styles from './LoginScreen.Style';
 import {useTheme} from '../../../theme/ThemeProvider';
+
+//custom hooks
+import useLoadingStore from '../../../store/useLoadingStore';
 
 //components
 import SvgLogo from '../../../components/icons/Logo';
@@ -21,9 +25,6 @@ import Input from '../../../components/Inputs/Input/Input';
 import ButtonWithIcon from '../../../components/Buttons/ButtonWithIcon/ButtonWithIcon';
 import SvgMicrosoft from '../../../components/icons/Microsoft';
 import SvgGoogle from '../../../components/icons/Google';
-import {login} from '../../../services/Firebase/Login';
-import useLoadingStore from '../../../store/useLoadingStore';
-import useUserStore from '../../../store/useUserStore';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
@@ -36,16 +37,19 @@ const LoginScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
   const {t} = useTranslation();
   const setLoading = useLoadingStore(state => state.setLoading);
-  const setUser = useUserStore(state => state.setUser);
 
   const handleLogin = async () => {
     if (email.length !== 0 || password.length !== 0) {
       setLoading(true);
-      await login(email, password).then(res => {
-        console.log(res.user);
-        setUser(res.user);
-      });
-      setLoading(false);
+      await auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          setLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setLoading(false);
+        });
     }
   };
 

@@ -12,7 +12,9 @@ type AuthStackParamList = {
   Welcome: undefined;
   Login: undefined;
   Register: undefined;
-  TellAbout: undefined;
+  TellAbout: {
+    uid: string;
+  };
   VerifyPhone: undefined;
   EnterVerifyCode: undefined;
 };

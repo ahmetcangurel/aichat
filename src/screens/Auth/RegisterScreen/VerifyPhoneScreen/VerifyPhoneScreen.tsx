@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -8,22 +8,26 @@ import {
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
+import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 
 //styles
 import styles from './VerifyPhoneScreen.Style';
 import {useTheme} from '../../../../theme/ThemeProvider';
 
+//custom hooks
+import useLoadingStore from '../../../../store/useLoadingStore';
+
 //components
 import SvgLogo from '../../../../components/icons/Logo';
 import Button from '../../../../components/Buttons/Button/Button';
 import PhoneNumberInput from '../../../../components/Inputs/PhoneNumberInput/PhoneNumberInput';
 import NativePicker from '../../../../components/NativePicker/NativePicker';
-import {updatePhoneNumber} from '../../../../services/Firebase/UpdateProfile';
-import useLoadingStore from '../../../../store/useLoadingStore';
+import useNewUserStore from '../../../../store/useNewUserStore';
 
 type RegisterScreenProps = {
   navigation: StackNavigationProp<any>;
+  route: any;
 };
 
 const VerifyPhoneScreen = ({navigation}: RegisterScreenProps) => {
@@ -33,24 +37,42 @@ const VerifyPhoneScreen = ({navigation}: RegisterScreenProps) => {
   const Style = styles();
   const {t} = useTranslation();
   const setLoading = useLoadingStore(state => state.setLoading);
+  const {newUser, setNewUser} = useNewUserStore(state => ({
+    setNewUser: state.setNewUser,
+    newUser: state.newUser,
+  }));
 
   const handleSendCode = async () => {
-    if (phoneNumber.length >= 10) {
-      setLoading(true);
-      //TODO: Çalışmıyor
-      await updatePhoneNumber(`${regionCode}${phoneNumber}`);
-      setLoading(false);
-      navigation.navigate('EnterVerifyCode');
-    } else {
-      console.log('Please enter your phone number');
-    }
+    setLoading(true);
+    setNewUser({...newUser, phoneNumber: phoneNumber, regionCode: regionCode});
+    await auth()
+      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .then(async userCredential => {
+        // Signed in
+        const {uid} = userCredential.user;
+        await firestore()
+          .collection('users')
+          .doc(uid)
+          .set({
+            bio: newUser.bio,
+            createdAt: firestore.Timestamp.fromDate(new Date()),
+            email: newUser.email,
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
+            phoneNumber: newUser.phoneNumber,
+            photoUrl: '',
+            regionCode: newUser.regionCode,
+            uid: uid,
+            updatedAt: firestore.Timestamp.fromDate(new Date()),
+            password: newUser.password,
+          });
+      })
+      .catch(error => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+    setLoading(false);
   };
-
-  const currentUser = auth().currentUser;
-
-  useEffect(() => {
-    console.log(currentUser);
-  }, []);
 
   return (
     <KeyboardAvoidingView>
