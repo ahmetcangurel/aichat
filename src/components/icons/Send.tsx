@@ -10,7 +10,7 @@ const SvgSend = (props: SvgProps) => (
     viewBox="0 0 24 24"
     {...props}>
     <Path
-      fill="#fff"
+      fill={props.color || '#000'}
       d="M19.448 12.894a1 1 0 0 0 0-1.788l-14-7A1 1 0 0 0 4.04 5.275l1.43 5A1 1 0 0 0 6.43 11h4.571a1 1 0 0 1 0 2h-4.57a1 1 0 0 0-.963.725l-1.428 5a1 1 0 0 0 1.408 1.17l14-7v-.001"
     />
   </Svg>
