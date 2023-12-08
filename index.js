@@ -21,6 +21,7 @@ KeyboardAvoidingView.defaultProps = {
   behavior: Platform.OS === 'ios' ? 'padding' : 'height',
   enabled: true,
   style: {flex: 1},
+  contentContainerStyle: {flex: 1},
 };
 
 AppRegistry.registerComponent(appName, () => App);
