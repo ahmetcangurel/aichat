@@ -1,11 +1,5 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  KeyboardAvoidingView,
-  FlatList,
-} from 'react-native';
+import {View, SafeAreaView, KeyboardAvoidingView, FlatList} from 'react-native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 
 //styles
@@ -74,6 +68,19 @@ const ChatScreen = ({navigation}: Props) => {
     },
   ]);
 
+  const handleSendMessage = () => {
+    setMessages(prev => [
+      ...prev,
+      {
+        id: messages.length + 1,
+        message: inputValue,
+        isUser: messages.length % 2 === 0,
+        time: '12:00',
+        date: '2021-01-01',
+      },
+    ]);
+  };
+
   return (
     <SafeAreaView style={Style.container}>
       <MainHeader
@@ -93,16 +100,7 @@ const ChatScreen = ({navigation}: Props) => {
         <ChatInput
           placeholder="Hello"
           onPress={() => {
-            setMessages(prev => [
-              ...prev,
-              {
-                id: messages.length + 1,
-                message: inputValue,
-                isUser: messages.length % 2 === 0,
-                time: '12:00',
-                date: '2021-01-01',
-              },
-            ]);
+            handleSendMessage();
           }}
           setVal={e => {
             setInputValue(e);

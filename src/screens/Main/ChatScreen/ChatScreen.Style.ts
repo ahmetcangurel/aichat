@@ -14,7 +14,6 @@ const styles = () => {
       paddingHorizontal: 12,
     },
     flatListContainer: {
-      flex: 1,
       justifyContent: 'flex-end',
     },
   });
