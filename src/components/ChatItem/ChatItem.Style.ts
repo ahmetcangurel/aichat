@@ -37,7 +37,7 @@ const styles = ({isUser}: StyleProps) => {
       },
       message: {
         ...base.message,
-        color: colors.common.white,
+        color: colors.text.primary,
       },
       time: {
         ...base.time,
