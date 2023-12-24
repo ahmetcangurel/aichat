@@ -44,7 +44,7 @@ export const ThemeContext = createContext({
   setScheme: (scheme: string) => {},
 });
 
-export const ThemeProvider = ({children}: any) => {
+export const ThemeProvider = ({children}: {children: React.ReactNode}) => {
   const colorScheme = useColorScheme();
   const [isDark, setIsDark] = useState(colorScheme == 'dark');
 
