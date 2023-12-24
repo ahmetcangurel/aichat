@@ -1,38 +1,3 @@
-// import React, {createContext, useContext, useEffect, useState} from 'react';
-// import {useColorScheme} from 'react-native';
-// import {DarkTheme, DefaultTheme} from './colors';
-
-// export const ThemeContext = createContext({
-//   dark: false,
-//   colors: DefaultTheme,
-//   setScheme: (scheme: string) => {},
-// });
-
-// export const ThemeProvider = ({children}: any) => {
-//   const colorScheme = useColorScheme();
-//   const [isDark, setIsDark] = useState(colorScheme == 'dark');
-
-//   useEffect(() => {
-//     setIsDark(colorScheme == 'dark');
-//   }, [colorScheme]);
-
-//   const defaultTheme = {
-//     dark: isDark,
-//     colors: isDark ? DarkTheme : DefaultTheme,
-//     setScheme: (scheme: string) => setIsDark(scheme == 'dark'),
-//   };
-
-//   return (
-//     <ThemeContext.Provider value={defaultTheme}>
-//       {children}
-//     </ThemeContext.Provider>
-//   );
-// };
-
-// export const useTheme = () => useContext(ThemeContext);
-
-//how to add async storage
-
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {useColorScheme} from 'react-native';
 import {DarkTheme, DefaultTheme} from './colors';
