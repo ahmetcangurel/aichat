@@ -18,7 +18,7 @@ export const updateDisplayName = async (
 //TODO: Çalışmıyor
 export const updatePhoneNumber = async (phoneNumber: string) => {
   try {
-    const res = await auth().currentUser?.updatePhoneNumber(phoneNumber);
+    const res = await auth().currentUser?.updatePhoneNumber(phoneNumber as any);
     return res;
   } catch (error) {
     console.log('Update Phone Number Error: ', (error as Error).message);
