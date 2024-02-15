@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, SafeAreaView, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  NativeModules,
+} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -21,6 +27,7 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
   const {colors, dark, setScheme} = useTheme();
   const Style = styles();
   const {t, i18n} = useTranslation();
+  const {RNSharedWidget} = NativeModules;
 
   // _DEV_ Save async storage
   const handleChangeLanguage = async () => {
@@ -30,6 +37,26 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
       type: 'success',
       text1: 'Language Changed',
       text2: i18n.language === 'en' ? 'English' : 'Türkçe',
+    });
+  };
+
+  // _DEV_ Save shared storage
+  const setSharedStorage = async () => {
+    await RNSharedWidget.setData(
+      'TestData',
+      JSON.stringify({
+        title: 'Test Title',
+        description: 'Test Description',
+        value: 'Test Value',
+      }),
+      (_status: number | null) => {
+        console.log('Shared Storage Saved');
+      },
+    );
+    Toast.show({
+      type: 'success',
+      text1: 'Shared Storage Saved',
+      text2: 'test',
     });
   };
 
@@ -68,6 +95,12 @@ const WelcomeScreen = ({navigation}: WelcomeScreenProps) => {
           type={'outlined'}
           title="Change Language"
           onPress={() => handleChangeLanguage()}
+        />
+        {/* _DEV_ Test Button */}
+        <Button
+          type={'outlined'}
+          title="Shared Storage"
+          onPress={() => setSharedStorage()}
         />
       </SafeAreaView>
     </ScrollView>

@@ -12,6 +12,13 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2FC662456C3382E4E50B4DA5 /* Pods_aichat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB389FAA1DE5177F08B919CD /* Pods_aichat.framework */; };
+		364940D72B42E9930026F61D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364940D62B42E9930026F61D /* WidgetKit.framework */; };
+		364940D92B42E9930026F61D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364940D82B42E9930026F61D /* SwiftUI.framework */; };
+		364940DC2B42E9930026F61D /* ChatWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364940DB2B42E9930026F61D /* ChatWidgetBundle.swift */; };
+		364940DE2B42E9930026F61D /* ChatWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364940DD2B42E9930026F61D /* ChatWidget.swift */; };
+		364940E02B42E9930026F61D /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364940DF2B42E9930026F61D /* AppIntent.swift */; };
+		364940E22B42E9940026F61D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364940E12B42E9940026F61D /* Assets.xcassets */; };
+		364940E62B42E9940026F61D /* ChatWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 364940D52B42E9930026F61D /* ChatWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		36F13F5F2B13D52B006653BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36F13F5E2B13D52B006653BB /* GoogleService-Info.plist */; };
 		4440B76FB4A6E4D62EA247AD /* Pods_aichat_aichatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819E5629D61E9704F84DE980 /* Pods_aichat_aichatTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -25,7 +32,28 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = aichat;
 		};
+		364940E42B42E9940026F61D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 364940D42B42E9930026F61D;
+			remoteInfo = ChatWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		364940EA2B42E9940026F61D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				364940E62B42E9940026F61D /* ChatWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* aichatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aichatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +65,16 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = aichat/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = aichat/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = aichat/main.m; sourceTree = "<group>"; };
+		364940D02B42E9310026F61D /* aichat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = aichat.entitlements; path = aichat/aichat.entitlements; sourceTree = "<group>"; };
+		364940D52B42E9930026F61D /* ChatWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ChatWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		364940D62B42E9930026F61D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		364940D82B42E9930026F61D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		364940DB2B42E9930026F61D /* ChatWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWidgetBundle.swift; sourceTree = "<group>"; };
+		364940DD2B42E9930026F61D /* ChatWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWidget.swift; sourceTree = "<group>"; };
+		364940DF2B42E9930026F61D /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		364940E12B42E9940026F61D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		364940E32B42E9940026F61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364940EB2B42E9A10026F61D /* ChatWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatWidgetExtension.entitlements; sourceTree = "<group>"; };
 		36F13F5E2B13D52B006653BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-aichat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aichat.debug.xcconfig"; path = "Target Support Files/Pods-aichat/Pods-aichat.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-aichat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-aichat.release.xcconfig"; path = "Target Support Files/Pods-aichat/Pods-aichat.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +103,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		364940D22B42E9930026F61D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				364940D92B42E9930026F61D /* SwiftUI.framework in Frameworks */,
+				364940D72B42E9930026F61D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -88,6 +135,7 @@
 		13B07FAE1A68108700A75B9A /* aichat */ = {
 			isa = PBXGroup;
 			children = (
+				364940D02B42E9310026F61D /* aichat.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -104,8 +152,22 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				CB389FAA1DE5177F08B919CD /* Pods_aichat.framework */,
 				819E5629D61E9704F84DE980 /* Pods_aichat_aichatTests.framework */,
+				364940D62B42E9930026F61D /* WidgetKit.framework */,
+				364940D82B42E9930026F61D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		364940DA2B42E9930026F61D /* ChatWidget */ = {
+			isa = PBXGroup;
+			children = (
+				364940DB2B42E9930026F61D /* ChatWidgetBundle.swift */,
+				364940DD2B42E9930026F61D /* ChatWidget.swift */,
+				364940DF2B42E9930026F61D /* AppIntent.swift */,
+				364940E12B42E9940026F61D /* Assets.xcassets */,
+				364940E32B42E9940026F61D /* Info.plist */,
+			);
+			path = ChatWidget;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -118,10 +180,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				364940EB2B42E9A10026F61D /* ChatWidgetExtension.entitlements */,
 				36F13F5E2B13D52B006653BB /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* aichat */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* aichatTests */,
+				364940DA2B42E9930026F61D /* ChatWidget */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -136,6 +200,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* aichat.app */,
 				00E356EE1AD99517003FC87E /* aichatTests.xctest */,
+				364940D52B42E9930026F61D /* ChatWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,15 +253,34 @@
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
 				57C51A7552913F991D6DF7C6 /* [CP-User] [RNFB] Core Configuration */,
+				364940EA2B42E9940026F61D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				364940E52B42E9940026F61D /* PBXTargetDependency */,
 			);
 			name = aichat;
 			productName = aichat;
 			productReference = 13B07F961A680F5B00A75B9A /* aichat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		364940D42B42E9930026F61D /* ChatWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 364940E72B42E9940026F61D /* Build configuration list for PBXNativeTarget "ChatWidgetExtension" */;
+			buildPhases = (
+				364940D12B42E9930026F61D /* Sources */,
+				364940D22B42E9930026F61D /* Frameworks */,
+				364940D32B42E9930026F61D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChatWidgetExtension;
+			productName = ChatWidgetExtension;
+			productReference = 364940D52B42E9930026F61D /* ChatWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -204,6 +288,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -212,6 +297,9 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					364940D42B42E9930026F61D = {
+						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
@@ -230,6 +318,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* aichat */,
 				00E356ED1AD99517003FC87E /* aichatTests */,
+				364940D42B42E9930026F61D /* ChatWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +338,14 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				36F13F5F2B13D52B006653BB /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364940D32B42E9930026F61D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				364940E22B42E9940026F61D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +532,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		364940D12B42E9930026F61D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				364940DC2B42E9930026F61D /* ChatWidgetBundle.swift in Sources */,
+				364940DE2B42E9930026F61D /* ChatWidget.swift in Sources */,
+				364940E02B42E9930026F61D /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -442,6 +549,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* aichat */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		364940E52B42E9940026F61D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 364940D42B42E9930026F61D /* ChatWidgetExtension */;
+			targetProxy = 364940E42B42E9940026F61D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -501,9 +613,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-aichat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = aichat/aichat.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = aichat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -530,9 +645,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-aichat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = aichat/aichat.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = aichat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -550,6 +668,97 @@
 				PRODUCT_NAME = aichat;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		364940E82B42E9940026F61D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ChatWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChatWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.aichat.ChatWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		364940E92B42E9940026F61D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ChatWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChatWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.aichat.ChatWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -740,6 +949,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		364940E72B42E9940026F61D /* Build configuration list for PBXNativeTarget "ChatWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				364940E82B42E9940026F61D /* Debug */,
+				364940E92B42E9940026F61D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
