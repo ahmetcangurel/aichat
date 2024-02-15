@@ -10,7 +10,7 @@ export const updateDisplayName = async (
     });
     return res;
   } catch (error) {
-    console.log('Update Profile Error: ', error.message);
+    console.log('Update Profile Error: ', (error as Error).message);
     return error;
   }
 };
@@ -21,7 +21,7 @@ export const updatePhoneNumber = async (phoneNumber: string) => {
     const res = await auth().currentUser?.updatePhoneNumber(phoneNumber);
     return res;
   } catch (error) {
-    console.log('Update Phone Number Error: ', error.message);
+    console.log('Update Phone Number Error: ', (error as Error).message);
     return error;
   }
 };
@@ -31,7 +31,7 @@ export const updateEmail = async (email: string) => {
     const res = await auth().currentUser?.updateEmail(email);
     return res;
   } catch (error) {
-    console.log('Update Email Error: ', error.message);
+    console.log('Update Email Error: ', (error as Error).message);
     return error;
   }
 };
@@ -41,7 +41,7 @@ export const updatePassword = async (password: string) => {
     const res = await auth().currentUser?.updatePassword(password);
     return res;
   } catch (error) {
-    console.log('Update Password Error: ', error.message);
+    console.log('Update Password Error: ', (error as Error).message);
     return error;
   }
 };
