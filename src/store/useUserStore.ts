@@ -3,7 +3,7 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 type UserStore = {
   user: FirebaseAuthTypes.User | null;
-  setUser: (user: FirebaseAuthTypes.User) => void;
+  setUser: (user: FirebaseAuthTypes.User | null) => void;
   loggedIn: boolean;
   setLoggedIn: (loggedIn: boolean) => void;
 };
