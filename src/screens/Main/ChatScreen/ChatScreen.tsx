@@ -11,6 +11,9 @@ import MainHeader from '../../../components/Headers/MainHeader/MainHeader';
 import ChatInput from '../../../components/Inputs/ChatInput/ChatInput';
 import ChatItem from '../../../components/ChatItem/ChatItem';
 
+//types
+import { MessageItemTypes } from '../../../types';
+
 type Props = {
   navigation: DrawerNavigationProp<any>;
 };
@@ -20,7 +23,7 @@ const ChatScreen = ({navigation}: Props) => {
   const {colors} = useTheme();
 
   const [inputValue, setInputValue] = useState<string>('');
-  const [messages, setMessages] = useState<any[]>([
+  const [messages, setMessages] = useState<MessageItemTypes[]>([
     {
       id: 1,
       message: 'Hello',
