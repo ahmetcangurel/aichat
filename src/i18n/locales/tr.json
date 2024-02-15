@@ -31,5 +31,13 @@
     "selectregion": "Bölge Seç",
     "searchregion": "Bölge Ara",
     "regionnotfound": "Bölge bulunamadı"
+  },
+  "main": {
+    "newchat": "Yeni Sohbet",
+    "clearconversation": "Sohbeti Temizle",
+    "lightmode": "Açık Mod",
+    "darkmode": "Koyu Mod",
+    "upgradetoplus": "Plus'a Yükselt",
+    "updatesandfaq": "Güncellemeler ve SSS"
   }
 }

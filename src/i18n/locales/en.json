@@ -31,5 +31,13 @@
     "selectregion": "Select region",
     "searchregion": "Search region",
     "regionnotfound": "Region not found"
+  },
+  "main": {
+    "newchat": "New chat",
+    "clearconversation": "Clear Conversation",
+    "lightmode": "Light Mode",
+    "darkmode": "Dark Mode",
+    "upgradetoplus": "Upgrade to Plus",
+    "updatesandfaq": "Updates & FAQ"
   }
 }
